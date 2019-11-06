@@ -1,121 +1,137 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoBundle
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
- " Note: Skip initialization for vim-tiny or vim-small.
- if 0 | endif
+if &compatible
+	set nocompatible               " Be iMproved
+endif
 
- if has('vim_starting')
-   if &compatible
-     set nocompatible               " Be iMproved
-   endif
+" Required:
+set runtimepath+=~/.vim/repos/github.com/Shougo/dein.vim
 
- " Required:
-   set runtimepath+=~/.vim/bundle/neobundle.vim/
- endif
+"if everything is configured right, you can press [i on an identifier to 
+"display its definition, or [d for a macro constant.
+" Required:
+if dein#load_state('/home/cataldo/.vim')
+	call dein#begin('/home/cataldo/.vim')
 
- " Required:
- call neobundle#begin(expand('~/.vim/bundle/'))
+	" Let dein manage dein
+	" Required:
+	call dein#add('/home/cataldo/.vim/repos/github.com/Shougo/dein.vim')
+	if !has('nvim')
+		call dein#add('roxma/nvim-yarp')
+		call dein#add('roxma/vim-hug-neovim-rpc')
+	endif
 
- " Let NeoBundle manage NeoBundle
- " Required:
- NeoBundleFetch 'Shougo/neobundle.vim'
+	call dein#add('wsdjeg/dein-ui.vim')
+	" Add or remove your plugins here like this:
+	"Statusbar
+	call dein#add('itchyny/lightline.vim')
+	" Additional rules for highlighting
+	call dein#add('octol/vim-cpp-enhanced-highlight')
+	" Makes scrolling in Vim nice and smooh
+	call dein#add('terryma/vim-smooth-scroll')
+	" smart pars for visual mode. use viv, vav, civ, ... 
+	" to select and v to expand.
+	call dein#add('gorkunov/smartpairs.vim')
+	" Comment/uncomment with cc
+	call dein#add('scrooloose/nerdcommenter')
+	" CamelCase motion (word inside function name)
+	call dein#add('bkad/CamelCaseMotion')
+	" Tag list for source code
+	call dein#add('vim-scripts/taglist.vim', {
+		\ 'lazy' : 1, 'on_cmd' : 'TlistToggle'})
+	" Denite!
+	call dein#add('Shougo/denite.nvim', {'lazy' : '1'})
+	" Nerdtree
+	call dein#add('scrooloose/nerdtree', {'lazy' : '1'})
+	" MiniBufExpl
+	call dein#add('fholgado/minibufexpl.vim')
+	" CommandT for fuzzysearching
+	call dein#add('wincent/command-t', {
+		\ 'build': 
+		\'sh -c "cd ruby/command-t/ext/command-t &&"
+		\" ruby extconf.rb && make"'})
+	" Ack support
+	call dein#add('mileszs/ack.vim', {
+		\'on_cmd' : 'Ack',
+		\'build': 'sh -c "cp ftplugin/*.vim ~/.vim/ftplugin"'})
+	" Color matching parentheses
+	call dein#add('luochen1990/rainbow')
+	" Asks for the right file to open
+	call dein#add('EinfachToll/DidYouMean')
+	" undo tree
+	call dein#add('mbbill/undotree')
+	" substitute surround components. cs", cst", ysiw}, etc
+	call dein#add('tpope/vim-surround')
+	" Syntastic! omg
+	call dein#add('scrooloose/syntastic')
+	" Vim syntax checkers for syntastic
+	call dein#add('ynkdir/vim-vimlparser')
+	call dein#add('syngan/vim-vimlint')
+	" Localvimrc support
+	call dein#add('embear/vim-localvimrc')
+	" Easymotion (,,w, ,,f)
+	call dein#add('easymotion/vim-easymotion')
+	" Persistent sessions
+	call dein#add('xolox/vim-misc')	
+	call dein#add('xolox/vim-session')
+	" mkview and loadview automatically
+	call dein#add('vim-scripts/restore_view.vim')
+	" Calendar (,c)
+	call dein#add('itchyny/calendar.vim')
+	" Jedi-vim!
+	call dein#add('davidhalter/jedi-vim', {
+		\'build':
+		\'sh -c "cp ftplugin/python/*.vim ~/.vim/ftplugin/python"'})
+	" vimtex
+	" set omnifunc=vimtex#complete#omnifunc
+	call dein#add('lervag/vimtex', {
+		\'build':
+		\'sh -c "cp ftplugin/*.vim ~/.vim/ftplugin"'})
+	" a switching!
+	call dein#add('LucHermitte/lh-vim-lib')
+	call dein#add('LucHermitte/alternate-lite')
+	" vim notes
+	call dein#add('xolox/vim-notes', {
+		\'build':
+		\'sh -c "cp ftplugin/*.vim ~/.vim/ftplugin &&"
+		\"cp syntax/*.vim ~/.vim/syntax"'})
+	" colors for html/rgb
+	call dein#add('lilydjwg/colorizer')
+	" for neomutt
+	call dein#add('neomutt/neomutt.vim', {
+		\'build':
+		\'sh -c "cp ftdetect/*.vim ~/.vim/ftdetect &&"
+		\"cp syntax/*.vim ~/.vim/syntax &&"
+		\"cp ftplugin/*.vim ~/.vim/ftplugin"'})
 
- " My Bundles here:
- " Refer to |:NeoBundle-examples|.
- " Note: You don't set neobundle setting in .gvimrc!
- 
-" Statusbar
-NeoBundle 'itchyny/lightline.vim'
-" Additional rules for highlighting
-NeoBundle 'octol/vim-cpp-enhanced-highlight'
-" Makes scrolling in Vim nice and smooh
-NeoBundle 'terryma/vim-smooth-scroll'
-" smart pars for visual mode. use viv, vav, civ, ... to select and v to expand.
-NeoBundle 'gorkunov/smartpairs.vim'
-" Comment/uncomment with cc
-NeoBundle 'scrooloose/nerdcommenter'
-" CamelCase motion (word inside function name)
-NeoBundle 'bkad/CamelCaseMotion'
-" Tag list for source code
-NeoBundle 'vim-scripts/taglist.vim'
-" Unite!
-NeoBundle 'Shougo/unite.vim'
-" Nerdtree
-NeoBundle 'scrooloose/nerdtree'
-" MiniBufExpl
-NeoBundle 'fholgado/minibufexpl.vim'
-" CommandT for fuzzysearching
-NeoBundle 'wincent/command-t'
-" Ack support
-NeoBundle 'mileszs/ack.vim'
-" Color matching parentheses
-NeoBundle 'luochen1990/rainbow'
-" Asks for the right file to open
-NeoBundle 'EinfachToll/DidYouMean'
-" undo tree
-NeoBundle 'mbbill/undotree'
-" substitute surround components. cs", cst", ysiw}, etc
-NeoBundle 'tpope/vim-surround'
-" Syntastic! omg
-NeoBundle 'scrooloose/syntastic'
-"NeoBundle 'vim-syntastic/syntastic'
-" Vim syntax checkers for syntastic
-NeoBundle 'syngan/vim-vimlint', {
-    \ 'depends' : 'ynkdir/vim-vimlparser'}
-" YouCompleteMe!
-"NeoBundle 'Valloric/YouCompleteMe'
-" YouCompleteMe get compile flags from makefile
-"NeoBundle 'rdnetto/YCM-Generator'
-" Localvimrc support
-NeoBundle 'embear/vim-localvimrc'
-" Easymotion (,,w, ,,f)
-NeoBundle 'easymotion/vim-easymotion'
-" Persistent sessions
-NeoBundle 'xolox/vim-session', {
-	\ 'depends' : 'xolox/vim-misc'}
-" mkview and loadview automatically
-NeoBundle 'vim-scripts/restore_view.vim'
-" Calendar (,c)
-NeoBundle 'itchyny/calendar.vim'
-" Jedi-vim!
-NeoBundle 'davidhalter/jedi-vim'
-" vimtex
-" set omnifunc=vimtex#complete#omnifunc
-NeoBundle 'lervag/vimtex'
-" nim
-NeoBundle 'zah/nim.vim'
-" a switching!
-NeoBundle 'LucHermitte/alternate-lite', {
-	\ 'depends' : 'LucHermitte/lh-vim-lib'}
-" vim notes
-NeoBundle 'xolox/vim-notes'
-" colors for html/rgb
-NeoBundle 'lilydjwg/colorizer'
+	" Required:
+	call dein#end()
+	call dein#save_state()
+endif
 
-
- call neobundle#end()
-
- " Required:
+" Required:
  filetype plugin indent on
 
- " If there are uninstalled bundles found on startup,
- " this will conveniently prompt you to install them.
- NeoBundleCheck
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+	call dein#install()
+endif
 
 let g:jedi#force_py_version = 3
 
 " activate matchit plugin
-" Incompatible with nim
-"runtime macros/matchit.vim
+runtime macros/matchit.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " TagList
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let Tlist_Display_Prototype = 1
-
+let Tlist_Display_Prototype = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim scripts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:cpp_posix_standard = 1
+let g:cpp_bsd_standard = 1
 source ~/.vim/scripts/ack.vim
 source ~/.vim/scripts/colorized.vim
 source ~/.vim/scripts/cscope.vim
@@ -131,9 +147,7 @@ source ~/.vim/scripts/theme.vim
 source ~/.vim/scripts/undo.vim
 source ~/.vim/scripts/unite_plus_nerdtree.vim
 source ~/.vim/scripts/vimtex.vim
-source ~/.vim/scripts/ycm.vim
 
-" must be loaded later
+"" must be loaded later
 source ~/.vim/scripts/minibufexpl.vim
 source ~/.vim/scripts/python.vim
-source ~/.vim/scripts/nim.vim
