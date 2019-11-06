@@ -1,0 +1,55 @@
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt appendhistory extendedglob
+bindkey -v
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/cataldo/.zshrc'
+
+fpath=(
+    ~/.zscripts
+    "${fpath[@]}"
+)
+
+autoload -Uz compinit promptinit
+compinit
+promptinit
+setopt COMPLETE_ALIASES
+# End of lines added by compinstall
+
+# dirstack, use cd -
+DIRSTACKFILE="$HOME/.cache/zsh/dirs"
+if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
+	dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
+	[[ -d $dirstack[1] ]] && cd $dirstack[1]
+fi
+
+chpwd() {
+  print -l $PWD ${(u)dirstack} >$DIRSTACKFILE
+}
+
+DIRSTACKSIZE=20
+
+setopt AUTO_PUSHD PUSHD_SILENT PUSHD_TO_HOME
+
+## Remove duplicate entries
+setopt PUSHD_IGNORE_DUPS
+
+## This reverts the +/- operators.
+setopt PUSHD_MINUS
+
+
+alias ls='ls --color=auto --group-directories-first -F'
+alias ..='cd ..'
+
+#path
+path+=('/usr/local/texlive/2018/bin/x86_64-linux')
+
+#tmux
+alias tmux='tmux -2'
+prompt adam2
+
+# zsh-bd
+. $HOME/.zsh/plugins/bd/bd.zsh
