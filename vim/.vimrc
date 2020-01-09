@@ -29,7 +29,7 @@ if dein#load_state('/home/cataldo/.vim')
 	" Additional rules for highlighting
 	call dein#add('octol/vim-cpp-enhanced-highlight')
 	" Makes scrolling in Vim nice and smooh
-	call dein#add('terryma/vim-smooth-scroll')
+	call dein#add('psliwka/vim-smoothie')
 	" smart pars for visual mode. use viv, vav, civ, ... 
 	" to select and v to expand.
 	call dein#add('gorkunov/smartpairs.vim')

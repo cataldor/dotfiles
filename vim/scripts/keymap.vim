@@ -102,11 +102,7 @@ vnoremap gu <esc>mz<esc>gvgu`z
 
 "************************** SmoothScroll ******************************
 " make scroll smooth (Plugin)
-" unmap <Space>
-nnoremap <Space> :call smooth_scroll#down(&scroll, 40, 22)<CR>
- " does not work
-" nnoremap <Ctrl><Space> :call smooth_scroll#up(&scroll, 0, 2)<CR>
-nnoremap <silent> <PageUp> :call smooth_scroll#up(&scroll, 40, 22)<CR>
+nnoremap <Space> :<C-U>call smoothie#downwards() <CR>
 "************************** SmoothScroll ******************************
 
 
