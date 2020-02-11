@@ -20,17 +20,19 @@ XTerm.vt100.selectToClipboard:	true
 
 xterm*background:	Grey15
 xterm*foreground:	white
-XTerm*faceName:		UbuntuMono:style=regular:size=13:antialias=true
+XTerm*faceName:	UbuntuMono:style=regular:size=13:antialias=true
 xterm*faceNameDoublesize:WenQuanYi Micro Hei:antialias=true:pixelsize=20
+!xterm*faceName: spleen:pixelsize=24:antialias=false
+!xterm*faceName: ProFont:pixelsize=16:antialias=false
 !XTerm*faceName:	IBMPlexMono:style=Regular:size=11:antialias=true
 !XTerm*faceName:	Droid Sans Mono:size=11:antialias=true
 !XTerm*faceName: 	DejaVu Sans Mono Book:size=11
 !XTerm*faceName:	Incosolata:size=10.5:antialias=true
 !XTerm*faceName:	Envy Code R:size=12:antialias=false
-!XTerm*faceName:	xft:DejaVu Sans ExtraLight:pixelsize=14:antialias=false
+!XTerm*faceName:	xft:DejaVu Sans ExtraLight:pixelsize=16:antialias=false
 !XTerm*faceName:	Monospace:size=11.5:antialias=false
 !XTerm*faceName:	Bitstream Vera Sans Mono:size=9
-!XTerm*faceName:	Terminus:pixelsize=14:antialias=true
+!XTerm*faceName:	Terminus:pixelsize=16:antialias=true
 !XTerm*font:		-xos4-terminus-medium-r-normal--18-180-72-72-c-100-iso10646-1
 !Xterm*font: 		-artwiz-lime-medium-*-normal-*-17-*-100-100-m-0-iso8859-*
 !Xterm*font:		-*-fixed-medium-r-*-*-18-*-*-*-*-*-iso8859-*
