@@ -82,7 +82,7 @@ if dein#load_state('/home/cataldo/.vim')
 	" Jedi-vim!
 	call dein#add('davidhalter/jedi-vim', {
 		\'build':
-		\'sh -c "cp ftplugin/python/*.vim ~/.vim/ftplugin/python"'})
+		\'sh -c "cp ftplugin/python/*.vim ~/.vim/ftplugin"'})
 	" vimtex
 	" set omnifunc=vimtex#complete#omnifunc
 	call dein#add('lervag/vimtex', {
